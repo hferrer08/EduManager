@@ -1,0 +1,6 @@
+@EduManagerAPI_HostAddress = http://localhost:5233
+
+GET {{EduManagerAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

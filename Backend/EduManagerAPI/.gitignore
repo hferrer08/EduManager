@@ -1,0 +1,40 @@
+# Visual Studio / VSCode
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Dotnet
+*.dbmdl
+*.pdb
+*.opendb
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# EF Core Migrations folder
+Migrations/
+
+# User secrets
+secrets.json
+
+# dotenv files
+.env
+
+# Postgres data (no subir dumps ni datos)
+*.sql
+*.dump
