@@ -19,14 +19,10 @@ Está construido con:
 ## Estructura del proyecto
 
 EduManager/
-│
-├── Backend/ # Proyecto backend en .NET - API
-│
-├── Frontend/ # Aplicación React
-│
-├── Database/ # Scripts para base de datos, migraciones, etc.
-│
-└── README.md # Este archivo
+- Backend/ # Proyecto backend en .NET - API
+- Frontend/ # Aplicación React
+- Database/ # Scripts para base de datos, migraciones, etc.
+
 ---
 
 ## Requisitos previos
