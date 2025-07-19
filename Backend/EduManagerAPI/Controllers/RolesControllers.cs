@@ -7,54 +7,56 @@ namespace EduManagerAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CursosController : ControllerBase
+    public class RolesController : ControllerBase
     {
         private readonly AppCoreDbContext _context;
 
-        public CursosController(AppCoreDbContext context)
+        public RolesController(AppCoreDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/cursos
+        // GET: api/roles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CurCurso>>> GetCursos()
+        public async Task<ActionResult<IEnumerable<RolRol>>> GetRoles()
         {
-            return await _context.CurCursos.ToListAsync();
+            return await _context.RolRoles.ToListAsync();
         }
 
+        // GET: api/roles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CurCurso>> GetCurso(int id)
+        public async Task<ActionResult<RolRol>> GetRol(int id)
         {
-            var curso = await _context.CurCursos.FindAsync(id);
+            var rol = await _context.RolRoles.FindAsync(id);
 
-            if (curso == null)
+            if (rol == null)
             {
                 return NotFound();
             }
 
-            return curso;
+            return rol;
         }
 
+        // POST: api/roles
         [HttpPost]
-        public async Task<ActionResult<CurCurso>> PostCurso(CurCurso curso)
+        public async Task<ActionResult<RolRol>> PostRol(RolRol rol)
         {
-            _context.CurCursos.Add(curso);
+            _context.RolRoles.Add(rol);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetCurso), new { id = curso.Cursoid }, curso);
+            return CreatedAtAction(nameof(GetRol), new { id = rol.Rolid }, rol);
         }
 
-
+        // PUT: api/roles/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCurso(int id, CurCurso curso)
+        public async Task<IActionResult> PutRol(int id, RolRol rol)
         {
-            if (id != curso.Cursoid)
+            if (id != rol.Rolid)
             {
                 return BadRequest();
             }
 
-            _context.Entry(curso).State = EntityState.Modified;
+            _context.Entry(rol).State = EntityState.Modified;
 
             try
             {
@@ -62,7 +64,7 @@ namespace EduManagerAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.CurCursos.Any(e => e.Cursoid == id))
+                if (!_context.RolRoles.Any(e => e.Rolid == id))
                 {
                     return NotFound();
                 }
@@ -75,28 +77,20 @@ namespace EduManagerAPI.Controllers
             return NoContent();
         }
 
+        // DELETE: api/roles/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCurso(int id)
+        public async Task<IActionResult> DeleteRol(int id)
         {
-            var curso = await _context.CurCursos.FindAsync(id);
-            if (curso == null)
+            var rol = await _context.RolRoles.FindAsync(id);
+            if (rol == null)
             {
                 return NotFound();
             }
 
-            _context.CurCursos.Remove(curso);
+            _context.RolRoles.Remove(rol);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
-
-
-
-
-
-
-
-
-
     }
 }
